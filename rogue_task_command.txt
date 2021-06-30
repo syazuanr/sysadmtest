@@ -27,7 +27,7 @@ mail //to check mail
 nano ~/Alarm-Rogue_Files_detected!	//create mail
 cat ~/Alamr-Rogue_Files_detected! | mail -s 'Alarm-Rogue_Files_Detected' -r syazuan94@gmail.com syazuan94@gmail.com  //send email
 
-
-
+crontab -e 	//to create open the cron editor
+@reboot /root/rogue.sh	//added this line on crontab to make the script run everytime the server start
 
 
