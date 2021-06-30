@@ -1,0 +1,33 @@
+touch rogue.sh		//to create rogue.sh
+nano rogue.sh		//to edit rogue.sh
+chmod +x rogue.sh	//to give permission to execute
+./rogue.sh		//to execute rogue.sh
+
+apt install postfix	//to install postfix for the email alarm
+service postfix status  //to check the status of postfix is it running or not
+service postfix start   //to start the postfix service
+
+sudo dpkg-reconfigure postfix						//setting for postfix
+sudo postconf -e 'home_mailbox= Maildir/'				//set the mailbox directory
+sudo postconf -e 'virtual_alias_maps= hash:/etc/postfix/virtual'	//set the location of the virtual_alias_maps table
+sudo nano /etc/postfix/virtual						//set up the virtual maps file
+sudo postmap /etc/postfix/virtual					//apply the mapping
+sudo service postfix restart						//restart the postfix service to make sure the changes been applied
+
+echo 'export MAIL=~/Maildir' | sudo tee -a /etc/bash.bashrc | sudo tee -a /etc/profile.d/mail.sh	//setup mail environment
+source /etc/profile.d/mail.sh
+
+sudo apt-get install s-nail	//install s-nail
+sudo nano /etc/s-nail.rc	//to edit s-nail.rc
+
+echo 'init' | mail -s 'init' root  //to sent email to myself so that the Maildir structure created automatically
+
+mail //to check mail
+
+nano ~/Alarm-Rogue_Files_detected!	//create mail
+cat ~/Alamr-Rogue_Files_detected! | mail -s 'Alarm-Rogue_Files_Detected' -r syazuan94@gmail.com syazuan94@gmail.com  //send email
+
+
+
+
+
